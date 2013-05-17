@@ -1,6 +1,9 @@
 # RangeScopes
 
-TODO: Write a gem description
+Gem adds scopes to active record model that is related with ranges.
+
+Scopes:
+  * range_between("range_from" => 15, "range_till" => 20)
 
 ## Installation
 
