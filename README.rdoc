@@ -5,9 +5,9 @@ This gem adds scopes that can be used for selecting objects, that contains scope
 == Still didn't get it?
 
 Consider this example: you have active record model that has price (or any other field) range: price_from and price_till. You have three objects:
-item #1: price_from: 50, price_to: 100
-item #2: price_from: 100, price_till: 150
-ietm #3: price_from: 150, price_till: 200
+* item #1: price_from: 50, price_to: 100
+* item #2: price_from: 100, price_till: 150
+* item #3: price_from: 150, price_till: 200
 
 * If you look for items that has price less than 110, you will expect to get item #1 and #2.
 * If you look for items that has price more than 110, you will expect to get item #2 and #3.
