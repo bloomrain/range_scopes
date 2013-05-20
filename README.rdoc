@@ -18,6 +18,12 @@ By default range_scopes threat nil as no value - model without any value are alw
 
 == Usage
 
+The only thing you need to do is to include Range scopes in active record model where would like to have range scopes:
+  class Item < ActiveRecord::Base
+    include RangeScopes
+  end
+This will add scope named "range_between".
+
 To get items with price between 100 and 200:
   Item.range_between("price_from" => 100, "price_till" => 200)
 
