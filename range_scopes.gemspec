@@ -1,19 +1,29 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'range_scopes/version'
+# coding: utf-8
+$:.push File.expand_path("../lib", __FILE__)
 
-Gem::Specification.new do |gem|
-  gem.name          = "range_scopes"
-  gem.version       = RangeScopes::VERSION
-  gem.authors       = ["TODO: Write your name"]
-  gem.email         = ["TODO: Write your email address"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+# Maintain your gem's version:
+require "range_scopes/version"
 
-  gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "range_scopes"
+  s.version     = RangeScopes::VERSION
+  s.authors     = ["Povilas Jurčys"]
+  s.email       = ["povilas@d9.lt"]
+  s.homepage    = "TODO"
+  s.summary     = "TODO: Summary of RangeScopes."
+  s.description = "TODO: Description of RangeScopes."
+
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]
+  s.test_files = Dir["spec/**/*"]
+
+  s.add_dependency "rails", "~> 3.2.12"
+  # s.add_dependency "jquery-rails"
+
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "mysql2"
+  s.add_development_dependency 'combustion', '~> 0.3.1'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency "factory_girl_rails"  
+  s.add_development_dependency 'database_cleaner'
 end
