@@ -1,3 +1,31 @@
 = RangeScopes
 
-This project rocks and uses MIT-LICENSE.
+This gem adds scopes that can be used for selecting objects, that contains scoped values.
+
+== Still didn't get it?
+
+Consider this example: you have active record model that has price (or any other field) range: price_from and price_till. You have three objects:
+item #1: price_from: 50, price_to: 100
+item #2: price_from: 100, price_till: 150
+ietm #3: price_from: 150, price_till: 200
+
+* If you look for items that has price less than 110, you will expect to get item #1 and #2.
+* If you look for items that has price more than 110, you will expect to get item #2 and #3.
+
+== And how about if item contains nil values?
+
+By default range_scopes threat nil as no value - model without any value are always returned
+
+== Usage
+
+To get items with price between 100 and 200:
+  Item.range_between("price_from" => 100, "price_till" => 200)
+
+You should always provide two key values. If you want to get items that has price bigger than 200, you should do like this:
+  Item.range_between("price_from" => nil, "price_till" => 200)
+
+Keys "price_from" and "price_till" should always be in same order: first key is field name that starts range, second key is field name that ends scope.
+
+You can use range scopes for associations too, like this:
+  #this will return groups that contain friends with age between 15 and 25
+  Group.include(:friends).range_between("friends.age_from" => 15, "friends.age_till" => 25) 
